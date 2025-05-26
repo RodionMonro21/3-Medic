@@ -1,0 +1,79 @@
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { CheckCircle } from "lucide-react";
+import { motion } from "framer-motion";
+
+export default function MPCPage() {
+  return (
+    <div className="min-h-screen bg-white text-gray-900 p-6 md:p-12">
+      <header className="mb-12 text-center">
+        <h1 className="text-4xl md:text-6xl font-bold mb-4">MPC by 3D Medic</h1>
+        <p className="text-lg md:text-xl text-gray-600">
+          Графический софт нового поколения для 3D-моделирования протезов и медицинских устройств
+        </p>
+      </header>
+
+      <section className="grid md:grid-cols-2 gap-8 mb-16">
+        <motion.img
+          src="/images/mpc-interface.png"
+          alt="Интерфейс MPC"
+          className="rounded-2xl shadow-xl"
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        />
+
+        <motion.div
+          initial={{ opacity: 0, x: 50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          <h2 className="text-3xl font-semibold mb-4">Возможности MPC</h2>
+          <ul className="space-y-4">
+            <li className="flex items-start gap-3">
+              <CheckCircle className="text-green-600" />
+              <span>Точное 3D-моделирование на основе МРТ/КТ данных</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <CheckCircle className="text-green-600" />
+              <span>Интуитивно понятный интерфейс для врачей и инженеров</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <CheckCircle className="text-green-600" />
+              <span>Экспорт моделей в формат STL и интеграция с 3D-печатью</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <CheckCircle className="text-green-600" />
+              <span>Совместная работа и облачное хранение проектов</span>
+            </li>
+          </ul>
+        </motion.div>
+      </section>
+
+      <section className="text-center mb-20">
+        <h2 className="text-3xl font-semibold mb-6">Кому подходит MPC?</h2>
+        <div className="grid md:grid-cols-3 gap-6">
+          {[
+            "Медицинским инженерам",
+            "Ортопедам и травматологам",
+            "3D-лабораториям и клиникам"
+          ].map((group) => (
+            <Card key={group} className="p-6 shadow-lg">
+              <CardContent className="text-lg font-medium text-gray-700 text-center">
+                {group}
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </section>
+
+      <section className="text-center">
+        <h2 className="text-3xl font-semibold mb-4">Попробуйте MPC уже сегодня</h2>
+        <p className="text-gray-600 mb-6">
+          Запросите демо-версию или свяжитесь с нами для консультации
+        </p>
+        <Button className="text-lg px-8 py-4">Запросить демо</Button>
+      </section>
+    </div>
+  );
+}
